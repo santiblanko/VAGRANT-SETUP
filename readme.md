@@ -5,7 +5,7 @@ Esta sobre Ubuntu 12.04 LTS de 32-bit.
 Sienteté del athletic mientras lo modificas a tu gusto.
 
 ## Modo de uso
-Necesitas: vagrant y virtualbox
+Necesitas: vagrant y virtualbox (Recuerda leer un poco la doc de vagrant)
 ```bash
 # Clonar
 $ git clone https://github.com/santiblanko/Vagrant-Athletic
@@ -31,10 +31,7 @@ sudo ./taylorScript.sh ejemplo.app nombreDelDirectorioEnVirtuals
 #(Este nos crea /sites-available/ejemplo.app.conf)
 #(El /etc/apache2/sites-enabled/santi.app.conf)
 #(El archivo hosts..)
-
-#Listo...
-vagrant destroy
-#Para destruir
+# Para más información leer vagrant doc
 ```
 ## Por defecto
 

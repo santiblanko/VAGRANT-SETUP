@@ -1,16 +1,11 @@
 # Athletic Dev Setup
 
 Permite configurar un entorno agradable para programar en PHP
-
 Esta sobre Ubuntu 12.04 LTS de 32-bit.
-
 Sienteté del athletic mientras lo modificas a tu gusto.
 
-
 ## Modo de uso
-
 Necesitas: vagrant y virtualbox
-
 ```bash
 # Clonar
 $ git clone https://github.com/santiblanko/Vagrant-Athletic
@@ -31,7 +26,6 @@ echo "192.168.33.10  beansole.app" | sudo tee -a /etc/hosts
 
 #Nos conectamos via ssh
 vagrant ssh
-
 #creamos nuestro virtualhost usando taylor serve script en la carpeta Scripts
 sudo ./taylorScript.sh ejemplo.app nombreDelDirectorioEnVirtuals
 #(Este nos crea /sites-available/ejemplo.app.conf)
@@ -41,11 +35,7 @@ sudo ./taylorScript.sh ejemplo.app nombreDelDirectorioEnVirtuals
 #Listo...
 vagrant destroy
 #Para destruir
-
 ```
-
-
-
 ## Por defecto
 
 - Apache

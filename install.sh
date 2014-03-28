@@ -58,9 +58,9 @@ echo "--- Document root ---"
 
 cd /home/vagrant
 mkdir Scripts && cd /home/vagrant/Scripts && mkdir PhpInfo
-wget https://gist.githubusercontent.com/santiblanko/9815306/raw/78e267d2321a361b94d767cf4b15b8a8fbdba308/serve
-mv serve to taylorScript.sh
-chmod +x taylorScript.sh
+sudo wget https://gist.githubusercontent.com/santiblanko/9815306/raw/78e267d2321a361b94d767cf4b15b8a8fbdba308/serve
+sudo mv serve taylorScript.sh
+sudo chmod +x taylorScript.sh
 
 cd /home/vagrant/ && mkdir virtuals
 sudo rm -rf /var/www

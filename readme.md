@@ -1,7 +1,6 @@
 # Athletic Dev Setup (Vagrant setUp)
 
-Permite configurar un entorno agradable para programar en PHP
-(Montado en Ubuntu 12.04 LTS de 32-bit).
+Permite configurar un entorno agradable para programar en PHP.
 
 Sienteté del athletic mientras lo modificas a tu gusto.
 

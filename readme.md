@@ -1,6 +1,6 @@
 # Athletic Dev Setup
 
-Permite configurar un entorno agradable para programar en PHP en 5 minutos.
+Permite configurar un entorno agradable para programar en PHP
 
 Esta sobre Ubuntu 12.04 LTS de 32-bit.
 

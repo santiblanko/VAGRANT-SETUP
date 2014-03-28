@@ -23,7 +23,7 @@ Recuerda siéntete del athletic..
 
  - Recuerda crear una carpeta llamada public.
  - Para agregar los virtualhost debes crear otra carpeta llamada virtuals y
-   si quieres realizar todo el proceso de forma rapida usa el script de taylor.
+   si quieres realizar todo el proceso de forma rapida usa el script de taylor.(Esta en la carpeta Scripts, te toca entrar con ssh)
  - Recuerda añadir tambien los host en tu pc anfitrión.
  - Para más información revisar el script (Es pequeño)
 

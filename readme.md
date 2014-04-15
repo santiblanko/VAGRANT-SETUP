@@ -13,7 +13,6 @@ $ mkdir public && mkdir virtuals
 # iniciar
 vagrant up
 
-
 #phpinfo
 echo "192.168.33.10  info.app" | sudo tee -a /etc/hosts
 #consola beanstalkd para queues..

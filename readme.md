@@ -33,6 +33,6 @@ sudo ./taylorScript.sh ejemplo.app nombreDelDirectorioEnVirtuals
 - MySQL (Password: toor)
 - Beanstalkd Queue & Console (http://beansole.app)
 - Node.js (With Grunt & Gulp & Yeoman)
-- Serve Script (Permite crear virtualhosts rapidamente)
+- Serve Script
 
 

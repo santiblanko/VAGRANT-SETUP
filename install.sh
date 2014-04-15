@@ -1,43 +1,24 @@
 #!/usr/bin/env bash
 
-# Este script esta basado en el setup que hizo Taylor Otwell para configurar sus maquinas virtuales en virtualBox.
-# Tambien esta basado en el setup de Jeffrey Way que mostro en LARACAST.
-# Se me olvidaba, tambien tiene cosas del vaprobash de fideloper...
-# Muchas gracias Señores!
 
-# Eres libre de modificarlo siempre y cuando te conviertas al toquerismo.
-
-echo "--- Buenos días, Vamos a trabajar un rato, Athletic!!.. ---"
-
-echo "--- Haciendo update ---"
 
 sudo apt-get update
 
 echo "--- Que estas mirando? Puedes ponerte a leer el marca, a echarte sueñito en el teclado o irte a tomar un cafe..."
 
-echo "--- Athleeeeeeeeeeeeeeeeetic!! ---"
-
-echo "--- Configurando MYSQL ---"
 
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
 
-echo "--- Instalando paquetes base ---"
 
 sudo apt-get install -y vim curl python-software-properties
 
-echo "--- Configurando instalación de PHP, right master? ---"
 
 sudo add-apt-repository -y ppa:ondrej/php5
 sudo apt-get install python-software-properties
 
-echo "--- Updating packages list ---"
 
 sudo apt-get update
-
-#Espero que esto funcione...
-
-echo "--- Instalando paquetes ---"
 
 sudo apt-get install -y php5 apache2 libapache2-mod-php5 php5-curl
 sudo apt-get install -y php5-gd php5-mcrypt php-pear mysql-server-5.5 php5-mysql git-core redis-server
@@ -50,11 +31,7 @@ xdebug.cli_color=1
 xdebug.show_local_vars=1
 EOF
 
-echo "--- Habilitando mod-rewrite ---"
-
 sudo a2enmod rewrite
-
-echo "--- Document root ---"
 
 cd /home/vagrant
 mkdir Scripts && cd /home/vagrant/Scripts && mkdir PhpInfo

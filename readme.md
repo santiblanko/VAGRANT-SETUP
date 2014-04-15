@@ -1,6 +1,4 @@
-# Athletic Dev Setup (Vagrant setUp)
-
-Permite configurar un entorno agradable para programar en PHP.
+# My vagrant
 
 Sienteté del athletic mientras lo modificas a tu gusto.
 
@@ -31,8 +29,6 @@ sudo ./taylorScript.sh ejemplo.app nombreDelDirectorioEnVirtuals
 #(Este nos crea /sites-available/ejemplo.app.conf)
 #(nos crea  /etc/apache2/sites-enabled/santi.app.conf)
 #(nos modifica archivo hosts..)
-# Para más información leer la documentación de vagrant...
-# Si vas a utilizar esto regularmente crea un box para ahorrar tiempo http://docs.vagrantup.com/v2/boxes/base.html
 ```
 ## Por defecto
 

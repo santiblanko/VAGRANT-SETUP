@@ -35,7 +35,7 @@ sudo ./taylorScript.sh ejemplo.app nombreDelDirectorioEnVirtuals
 - Node.js (With Grunt & Gulp & Yeoman)
 - Serve Script
 
-# Version mini.
+## Version mini.
 
 Bueno aqui arriba hay muchas cosas y no siempre son necesarias.
 Necesitamos una configuración express..

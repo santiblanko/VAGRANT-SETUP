@@ -4,9 +4,6 @@
 
 sudo apt-get update
 
-echo "--- Que estas mirando? Puedes ponerte a leer el marca, a echarte sueñito en el teclado o irte a tomar un cafe..."
-
-
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
 

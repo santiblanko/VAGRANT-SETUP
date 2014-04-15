@@ -40,6 +40,6 @@ sudo ./taylorScript.sh ejemplo.app nombreDelDirectorioEnVirtuals
 Bueno aqui arriba hay muchas cosas y no siempre son necesarias.
 Necesitamos una configuración express..
 ```bash
-alias v:i="mkdir www && wget http://goo.gl/5N1zJA &&  mv 5n1zJA install.sh  && wget http://goo.gl/J1hvBz && mv J1HvBz VagrantFile && vagrant up"
+alias v:ie="mkdir www && wget http://goo.gl/5N1zJA &&  mv 5n1zJA install.sh  && wget http://goo.gl/J1hvBz && mv J1HvBz VagrantFile && vagrant up"
 ```
 

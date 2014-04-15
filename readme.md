@@ -35,4 +35,11 @@ sudo ./taylorScript.sh ejemplo.app nombreDelDirectorioEnVirtuals
 - Node.js (With Grunt & Gulp & Yeoman)
 - Serve Script
 
+# Version mini.
+
+Bueno aqui arriva hay muchas cosas y no siempre son necesarias.
+Necesitamos una configuración express..
+```bash
+alias v:i="mkdir www && wget http://goo.gl/5N1zJA &&  mv 5n1zJA install.sh  && wget http://goo.gl/J1hvBz && mv J1HvBz VagrantFile && vagrant up"
+```
 

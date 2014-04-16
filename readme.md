@@ -36,9 +36,7 @@ sudo ./taylorScript.sh ejemplo.app nombreDelDirectorioEnVirtuals
 - Serve Script
 
 ## Version mini.
-
-Bueno aqui arriba hay muchas cosas y no siempre son necesarias.
-Necesitamos una configuración express..
+Configuración mucho más liviana. Para cuando hay prisa.
 ```bash
 alias v:ie="mkdir www && wget http://goo.gl/5N1zJA &&  mv 5n1zJA install.sh  && wget http://goo.gl/J1hvBz && mv J1HvBz VagrantFile && vagrant up"
 ```

@@ -13,6 +13,7 @@
 - Supervisor
 - Git
 - Node.js
+- Vim
 
 
 

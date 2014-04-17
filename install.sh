@@ -27,6 +27,9 @@ sudo apt-get install -y beanstalkd
 sudo apt-get install -y supervisor
 sudo apt-get install -y sqlite
 
+# apache ServerName
+sudo sed -i "s/#ServerRoot.*/ServerName ubuntu/" /etc/apache2/apache2.conf
+sudo /etc/init.d/apache2 restart
 
 # config beanstalkd
 sudo sed -i "s/#START=yes/START=yes/" /etc/default/beanstalkd

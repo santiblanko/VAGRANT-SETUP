@@ -1,5 +1,4 @@
 sudo apt-get update
-sudo apt-get upgrade
 
 # Config mysql
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password toor'
@@ -26,6 +25,7 @@ sudo apt-get install -y redis-server
 sudo apt-get install -y memcached 
 sudo apt-get install -y beanstalkd
 sudo apt-get install -y supervisor
+sudo apt-get install -y sqlite
 
 
 # config beanstalkd
@@ -53,8 +53,9 @@ sudo mv composer.phar /usr/local/bin/composer
 
 # Added script and alias.
 cd /home/vagrant
-sudo wget https://gist.githubusercontent.com/santiblanko/9815306/raw/78e267d2321a361b94d767cf4b15b8a8fbdba308/serve
-sudo mv serve add-site.sh
+mkdir virtuals
+mkdir scripts && cd scripts
+sudo wget -L 'add-site.sh' https://raw.githubusercontent.com/santiblanko/Vagrant/master/scripts/add-site.sh
 sudo chmod +x add-site.sh
 
 cat > /home/vagrant/.bash_aliases << EOF
@@ -64,6 +65,6 @@ alias h='cd ~'
 alias c='clear'
 
 function serve() {
-     sudo bash /vagrant/add-site.sh \$1 \$2
+     sudo bash /home/vagrant/scripts/add-site.sh \$1 \$2
 }
 EOF

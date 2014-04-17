@@ -51,10 +51,15 @@ sudo service apache2 restart
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 
+# install PHPUnit
+sudo pear config-set auto_discover 1
+sudo pear install pear.phpunit.de/phpunit
+
+
 # Added script and alias.
 cd /home/vagrant
 mkdir virtuals
-mkdir scripts && cd scripts
+mkdir scripts && mkdir phpInfo && cd scripts
 sudo wget -L 'add-site.sh' https://raw.githubusercontent.com/santiblanko/Vagrant/master/scripts/add-site.sh
 sudo chmod +x add-site.sh
 
@@ -68,3 +73,39 @@ function serve() {
      sudo bash /home/vagrant/scripts/add-site.sh \$1 \$2
 }
 EOF
+
+
+git clone https://github.com/ptrofimov/beanstalk_console.git beansole
+echo "127.0.0.1  beansole.app" | sudo tee -a /etc/hosts
+vhost="<VirtualHost *:80>
+     ServerName beansole.app
+     DocumentRoot /home/vagrant/scripts/beansole/public
+     <Directory \"/home/vagrant/scripts/beansole/public\">
+          Order allow,deny
+          Allow from all
+          Require all granted
+          AllowOverride All
+    </Directory>
+</VirtualHost>"
+
+echo "$vhost" | sudo tee /etc/apache2/sites-available/beansole.app.conf
+sudo a2ensite beansole.app
+sudo /etc/init.d/apache2 restart
+
+echo "<?php phpinfo();" > ~/scripts/phpInfo/index.php
+
+sudo a2enmod rewrite
+echo "127.0.0.1  info.app" | sudo tee -a /etc/hosts
+vhost="<VirtualHost *:80>
+     ServerName info.app
+     DocumentRoot /home/vagrant/scripts/phpInfo
+     <Directory \"/home/taylor/scripts/phpInfo\">
+          Order allow,deny
+          Allow from all
+          Require all granted
+          AllowOverride All
+    </Directory>
+</VirtualHost>"
+echo "$vhost" | sudo tee /etc/apache2/sites-available/info.app.conf
+sudo a2ensite info.app
+sudo /etc/init.d/apache2 restart

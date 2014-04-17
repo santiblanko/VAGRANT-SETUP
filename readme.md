@@ -32,12 +32,5 @@ sudo ./taylorScript.sh ejemplo.app nombreDelDirectorioEnVirtuals
 - Redis
 - MySQL (Password: toor)
 - Beanstalkd Queue & Console (http://beansole.app)
-- Node.js (With Grunt & Gulp & Yeoman)
-- Serve Script
 
-## Version mini.
-Configuración mucho más liviana. Para cuando hay prisa.
-```bash
-alias v:ie="mkdir www && wget http://goo.gl/5N1zJA &&  mv 5n1zJA install.sh  && wget http://goo.gl/J1hvBz && mv J1HvBz VagrantFile && vagrant up"
-```
 

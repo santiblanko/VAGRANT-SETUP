@@ -1,17 +1,14 @@
 # My vagrant
 
-Sienteté del athletic mientras lo modificas a tu gusto.
-
-```
-## Include
-
 - Apache
 - PHP 5.5
+- Xdebug
 - Composer
 - PHPUnit
+- Mysql 5.5 (Password: toor)
 - Memcached
 - Redis
-- MySQL (Password: toor)
-- Beanstalkd Queue & Console (http://beansole.app)
-
-
+- Sqlite
+- Beanstalkd
+- Supervisor
+- Git

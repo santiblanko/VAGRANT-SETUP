@@ -59,7 +59,8 @@ sudo pear install pear.phpunit.de/phpunit
 # Added script and alias.
 cd /home/vagrant
 mkdir virtuals
-mkdir scripts && mkdir phpInfo && cd scripts
+mkdir scripts && cd scripts
+mkdir phpInfo
 sudo wget -L 'add-site.sh' https://raw.githubusercontent.com/santiblanko/Vagrant/master/scripts/add-site.sh
 sudo chmod +x add-site.sh
 
@@ -99,7 +100,7 @@ echo "127.0.0.1  info.app" | sudo tee -a /etc/hosts
 vhost="<VirtualHost *:80>
      ServerName info.app
      DocumentRoot /home/vagrant/scripts/phpInfo
-     <Directory \"/home/taylor/scripts/phpInfo\">
+     <Directory \"/home/vagrant/scripts/phpInfo\">
           Order allow,deny
           Allow from all
           Require all granted

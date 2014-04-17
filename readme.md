@@ -9,6 +9,10 @@
 - Memcached
 - Redis
 - Sqlite
-- Beanstalkd
+- Beanstalkd and beansole.
 - Supervisor
 - Git
+- Node.js
+
+
+

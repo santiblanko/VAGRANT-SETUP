@@ -2,7 +2,7 @@ echo "127.0.0.1 $1" >> "/etc/hosts"
 
 vhost="<VirtualHost *:80>
   ServerName $1
-	DocumentRoot /home/vagrant/virtuals/$2
+	DocumentRoot /home/vagrant/virtuals/$2/public
 	<Directory \"/home/vagrant/virtuals/$2\">
 		Order allow,deny
 		Allow from all

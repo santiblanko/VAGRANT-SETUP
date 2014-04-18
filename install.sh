@@ -86,7 +86,7 @@ ln -s \"/etc/apache2/sites-available/\$1.conf\" \"/etc/apache2/sites-enabled/\$1
 echo "$script" > "/home/vagrant/scripts/add-site.sh"
 
 sudo chmod +x /home/vagrant/scripts/add-site.sh
-cat > /home/vagrant/.bash_aliases << EOF
+cat > /home/vagrant/.bashrc << EOF
 alias ..="cd .."
 alias ...="cd ../.."
 alias h='cd ~'

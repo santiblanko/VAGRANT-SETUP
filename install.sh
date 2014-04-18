@@ -26,6 +26,8 @@ sudo apt-get install -y memcached
 sudo apt-get install -y beanstalkd
 sudo apt-get install -y supervisor
 sudo apt-get install -y sqlite
+sudo apt-get install -y nodejs
+
 
 # apache ServerName
 sudo sed -i "s/#ServerRoot.*/ServerName ubuntu/" /etc/apache2/apache2.conf
@@ -37,7 +39,7 @@ sudo /etc/init.d/beanstalkd start
 
 # config xdebug
 cat << EOF | sudo tee -a /etc/php5/mods-available/xdebug.ini
-xdebug.scream=1
+xdebug.scream=0
 xdebug.cli_color=1
 xdebug.show_local_vars=1
 EOF
@@ -55,18 +57,38 @@ curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 
 # install PHPUnit
-sudo pear config-set auto_discover 1
-sudo pear install pear.phpunit.de/phpunit
-
+wget https://phar.phpunit.de/phpunit.phar
+sudo chmod +x phpunit.phar
+sudo mv phpunit.phar /usr/local/bin/phpunit
 
 # Added script and alias.
 cd /home/vagrant
 mkdir virtuals
 mkdir scripts && cd scripts
 mkdir phpInfo
-sudo wget -L 'add-site.sh' https://raw.githubusercontent.com/santiblanko/Vagrant/master/scripts/add-site.sh
-sudo chmod +x add-site.sh
 
+script="echo \"127.0.0.1 \$1\" >> \"/etc/hosts\"
+
+vhost=\"<VirtualHost *:80>
+  ServerName \$1
+    DocumentRoot /home/vagrant/virtuals/\$2/\$3
+    <Directory \"/home/vagrant/virtuals/\$2\">
+        Order allow,deny
+        Allow from all
+        Require all granted
+        AllowOverride All
+    </Directory>
+</VirtualHost>\"
+
+echo \"\$vhost\" >> \"/etc/apache2/sites-available/\$1.conf\"
+
+ln -s \"/etc/apache2/sites-available/\$1.conf\" \"/etc/apache2/sites-enabled/\$1.conf\"
+
+/etc/init.d/apache2 reload"
+
+echo "$script" > "/home/vagrant/scripts/add-site.sh"
+
+sudo chmod +x /home/vagrant/scripts/add-site.sh
 cat > /home/vagrant/.bash_aliases << EOF
 alias ..="cd .."
 alias ...="cd ../.."
@@ -74,11 +96,11 @@ alias h='cd ~'
 alias c='clear'
 
 function serve() {
-     sudo bash /home/vagrant/scripts/add-site.sh \$1 \$2
+     sudo bash /home/vagrant/scripts/add-site.sh \$1 \$2 \$3
 }
 EOF
 
-
+cd /home/vagrant/scripts
 git clone https://github.com/ptrofimov/beanstalk_console.git beansole
 echo "127.0.0.1  beansole.app" | sudo tee -a /etc/hosts
 vhost="<VirtualHost *:80>
@@ -96,7 +118,9 @@ echo "$vhost" | sudo tee /etc/apache2/sites-available/beansole.app.conf
 sudo a2ensite beansole.app
 sudo /etc/init.d/apache2 restart
 
-echo "<?php phpinfo();" > ~/scripts/phpInfo/index.php
+chmod 777 /home/vagrant/scripts/beansole/storage.json
+
+echo "<?php phpinfo();" > /home/vagrant/scripts/phpInfo/index.php
 
 sudo a2enmod rewrite
 echo "127.0.0.1  info.app" | sudo tee -a /etc/hosts

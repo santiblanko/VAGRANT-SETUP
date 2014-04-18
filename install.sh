@@ -37,14 +37,12 @@ sudo /etc/init.d/apache2 restart
 sudo sed -i "s/#START=yes/START=yes/" /etc/default/beanstalkd
 sudo /etc/init.d/beanstalkd start
 
-# config xdebug
+# config php
 cat << EOF | sudo tee -a /etc/php5/mods-available/xdebug.ini
-xdebug.scream=0
+xdebug.scream=1
 xdebug.cli_color=1
 xdebug.show_local_vars=1
 EOF
-
-# config php
 sudo a2enmod rewrite
 sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/apache2/php.ini
 sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/apache2/php.ini
@@ -62,10 +60,9 @@ sudo chmod +x phpunit.phar
 sudo mv phpunit.phar /usr/local/bin/phpunit
 
 # Added script and alias.
-cd /home/vagrant
-mkdir virtuals
-mkdir scripts && cd scripts
-mkdir phpInfo
+mkdir /home/vagrant/virtuals 
+mkdir /home/vagrant/scripts
+mkdir /home/vagrant/scripts/phpInfo
 
 script="echo \"127.0.0.1 \$1\" >> \"/etc/hosts\"
 
@@ -101,7 +98,7 @@ function serve() {
 EOF
 
 cd /home/vagrant/scripts
-git clone https://github.com/ptrofimov/beanstalk_console.git beansole
+composer create-project ptrofimov/beanstalk_console -s stable /home/vagrant/scripts/beansole
 echo "127.0.0.1  beansole.app" | sudo tee -a /etc/hosts
 vhost="<VirtualHost *:80>
      ServerName beansole.app

@@ -21,10 +21,12 @@ sudo apt-get install -y mysql-server-5.5
 sudo apt-get install -y php5-mysql 
 sudo apt-get install -y git-core 
 sudo apt-get install -y php5-xdebug
+sudo apt-get install -y php5-sqlite
 sudo apt-get install -y redis-server
 sudo apt-get install -y memcached 
 sudo apt-get install -y beanstalkd
 sudo apt-get install -y supervisor
+sudo apt-cache show supervisor
 sudo apt-get install -y sqlite
 sudo apt-get install -y nodejs
 
